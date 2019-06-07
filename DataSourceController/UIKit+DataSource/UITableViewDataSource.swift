@@ -5,7 +5,7 @@ import UIKit
 
 extension DataSourceController: UITableViewDataSource {
     public func numberOfSections(in tableView: UITableView) -> Int {
-        if sectionCount == 0 {
+        if totalRowCount == 0 {
             if tableView.backgroundView == nil || !(tableView.backgroundView is UILabel) {
                 tableView.backgroundView = delegate?.backgroundMessageLabel(for: tableView)
             }
