@@ -23,7 +23,7 @@ extension DataSourceController: UITableViewDataSource {
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let modelObject = model(at: indexPath), let dataController = dataController(for: modelObject) {
+        if let modelObject = modelObject(at: indexPath), let dataController = dataController(for: modelObject) {
             let cell = tableView.dequeueReusableCell(withIdentifier: dataController.reuseIdentifier, for: indexPath)
             if let cell = cell as? CellView {
 	            cell.configure(with: dataController)

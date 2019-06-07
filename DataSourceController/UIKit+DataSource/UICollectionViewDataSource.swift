@@ -22,7 +22,7 @@ extension DataSourceController: UICollectionViewDataSource {
 
     public func collectionView(_ collectionView: UICollectionView,
                                cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let modelObject = model(at: indexPath), let viewModel = dataController(for: modelObject) {
+        if let modelObject = modelObject(at: indexPath), let viewModel = dataController(for: modelObject) {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: viewModel.reuseIdentifier,
                                                           for: indexPath)
             if let cell = cell as? CellView {

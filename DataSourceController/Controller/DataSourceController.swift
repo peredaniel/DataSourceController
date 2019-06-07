@@ -76,7 +76,7 @@ public class DataSourceController: ModelDataControllerMap {
         return sections.flatMap { $0.rows }.count
     }
 
-    func model(at indexPath: IndexPath) -> Any? {
+    public func modelObject(at indexPath: IndexPath) -> Any? {
         guard (0..<sectionCount).contains(indexPath.section),
             (0..<sections[indexPath.section].rows.count).contains(indexPath.row) else {
                 return nil
