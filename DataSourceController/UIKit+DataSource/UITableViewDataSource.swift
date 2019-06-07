@@ -4,22 +4,22 @@ import Foundation
 import UIKit
 
 extension DataSourceController: UITableViewDataSource {
-    public func updateVisibleCells(_ tableView: UITableView) {
-        for cell in tableView.visibleCells {
-            guard let indexPath = tableView.indexPath(for: cell), let cell = cell as? CellView else { continue }
-            update(view: cell, indexPath: indexPath)
+    public func numberOfSections(in tableView: UITableView) -> Int {
+        if totalRowCount == 0 {
+            if tableView.backgroundView == nil || !(tableView.backgroundView is UILabel) {
+                tableView.backgroundView = delegate?.backgroundMessageLabel(for: tableView)
+            }
+            tableView.backgroundView?.isHidden = false
+            tableView.separatorStyle = .none
+        } else {
+            tableView.separatorStyle = .singleLine
+            tableView.backgroundView?.isHidden = true
         }
-    }
-
-    public func update(view: CellView, indexPath: IndexPath) {
-        if let modelObject: Any = model(at: indexPath), let dataController = dataController(for: modelObject) {
-            view.configure(with: dataController)
-        }
+        return sectionCount
     }
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let numberOfRows = rowCount(for: section)
-        return numberOfRows
+        return rowCount(for: section)
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -34,20 +34,6 @@ extension DataSourceController: UITableViewDataSource {
         defaultCell.textLabel?.text = "Unable to render"
         defaultCell.backgroundView?.backgroundColor = .red
         return defaultCell
-    }
-
-    public func numberOfSections(in tableView: UITableView) -> Int {
-        if sectionCount == 0 {
-            if tableView.backgroundView == nil || !(tableView.backgroundView is UILabel) {
-                tableView.backgroundView = delegate?.backgroundMessageLabel(for: tableView)
-            }
-            tableView.backgroundView?.isHidden = false
-            tableView.separatorStyle = .none
-        } else {
-            tableView.separatorStyle = .singleLine
-            tableView.backgroundView?.isHidden = true
-        }
-        return sectionCount
     }
 
     public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
