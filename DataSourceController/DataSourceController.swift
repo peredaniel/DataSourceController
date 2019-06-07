@@ -45,12 +45,12 @@ public class DataSourceController: ModelDataControllerMap {
 
     private var sections: [Section]
 
-    public init(sections: [Section], delegate: DataSourceControllerDelegate?=nil) {
+    public init(sections: [Section], delegate: DataSourceControllerDelegate? = nil) {
         self.sections = sections
         self.delegate = delegate
     }
 
-    public convenience init(rows: [Any], delegate: DataSourceControllerDelegate?=nil) {
+    public convenience init(rows: [Any], delegate: DataSourceControllerDelegate? = nil) {
         self.init(sections: [Section(rows: rows)], delegate: delegate)
     }
 
@@ -69,7 +69,7 @@ public class DataSourceController: ModelDataControllerMap {
     }
 
     public var totalRowCount: Int {
-        return sections.flatMap({$0.rows}).count
+        return sections.flatMap { $0.rows }.count
     }
 
     func model(at indexPath: IndexPath) -> Any? {
@@ -82,7 +82,7 @@ public class DataSourceController: ModelDataControllerMap {
 }
 
 extension DataSourceController: DataSourceObjectManager {
-    public func add(section: Section, at index: Int?=nil, notify: Bool=true) {
+    public func add(section: Section, at index: Int? = nil, notify: Bool = true) {
         if let index = index, (0..<sectionCount).contains(index) {
             sections.insert(section, at: index)
         } else {
@@ -91,7 +91,7 @@ extension DataSourceController: DataSourceObjectManager {
         if notify { delegate?.dataSourceWasMutated(self) }
     }
 
-    public func add(object: Any, at indexPath: IndexPath, notify: Bool=true) {
+    public func add(object: Any, at indexPath: IndexPath, notify: Bool = true) {
         guard (0..<sections.count).contains(indexPath.section) else {
             add(section: Section(rows: [object]), notify: notify)
             return
@@ -106,18 +106,18 @@ extension DataSourceController: DataSourceObjectManager {
         if notify { delegate?.dataSourceWasMutated(self, section: indexPath.section) }
     }
 
-    public func update(allSections sections: [Section], notify: Bool=true) {
+    public func update(allSections sections: [Section], notify: Bool = true) {
         self.sections = sections
         if notify { delegate?.dataSourceWasMutated(self) }
     }
 
-    public func update(section: Section, at index: Int, notify: Bool=true) {
+    public func update(section: Section, at index: Int, notify: Bool = true) {
         guard (0..<sectionCount).contains(index) else { return }
         sections[index] = section
         if notify { delegate?.dataSourceWasMutated(self, section: index) }
     }
 
-    public func update(rows: [Any], atSection index: Int, notify: Bool=true) {
+    public func update(rows: [Any], atSection index: Int, notify: Bool = true) {
         guard (0..<sectionCount).contains(index) else { return }
         let section = sections[index]
         section.rows = rows
@@ -128,21 +128,21 @@ extension DataSourceController: DataSourceObjectManager {
         }
     }
 
-    public func update(sectionData: SectionDataModel, at index: Int, notify: Bool=true) {
+    public func update(sectionData: SectionDataModel, at index: Int, notify: Bool = true) {
         guard (0..<sectionCount).contains(index) else { return }
         let section = sections[index]
         section.sectionData = sectionData
         update(section: section, at: index, notify: notify)
     }
 
-    public func update(row modelObject: Any, at indexPath: IndexPath, notify: Bool=true) {
+    public func update(row modelObject: Any, at indexPath: IndexPath, notify: Bool = true) {
         guard (0..<sectionCount).contains(indexPath.section),
             (0..<rowCount(for: indexPath.section)).contains(indexPath.row) else { return }
         sections[indexPath.section].rows[indexPath.row] = modelObject
         if notify { delegate?.dataSourceWasMutated(self, indexPaths: [indexPath]) }
     }
 
-    public func update(rows: [IndexPath: Any], notify: Bool=true) {
+    public func update(rows: [IndexPath: Any], notify: Bool = true) {
         guard (0..<sectionCount).contains(rows.keys.map { $0.section }.max() ?? 0) else { return }
         var mutatedIndexPaths: [IndexPath] = []
         for (indexPath, modelObject) in rows {
@@ -153,13 +153,13 @@ extension DataSourceController: DataSourceObjectManager {
         if notify { delegate?.dataSourceWasMutated(self, indexPaths: mutatedIndexPaths) }
     }
 
-    public func remove(sectionAt section: Int, notify: Bool=true) {
+    public func remove(sectionAt section: Int, notify: Bool = true) {
         guard (0..<sectionCount).contains(section) else { return }
         sections.remove(at: section)
         if notify { delegate?.dataSourceWasMutated(self) }
     }
 
-    public func remove(objectAt indexPath: IndexPath, notify: Bool=true) {
+    public func remove(objectAt indexPath: IndexPath, notify: Bool = true) {
         guard (0..<sectionCount).contains(indexPath.section),
             (0..<rowCount(for: indexPath.section)).contains(indexPath.row) else { return }
         sections[indexPath.section].rows.remove(at: indexPath.row)
