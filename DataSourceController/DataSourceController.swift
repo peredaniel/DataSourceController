@@ -44,11 +44,9 @@ public class DataSourceController: ModelDataControllerMap {
     public weak var delegate: DataSourceControllerDelegate?
 
     private var sections: [Section]
-    private(set) var emptyMessage: String?
 
-    public init(sections: [Section], emptyMessage: String?=nil, delegate: DataSourceControllerDelegate?=nil) {
+    public init(sections: [Section], delegate: DataSourceControllerDelegate?=nil) {
         self.sections = sections
-        self.emptyMessage = emptyMessage
         self.delegate = delegate
     }
 
