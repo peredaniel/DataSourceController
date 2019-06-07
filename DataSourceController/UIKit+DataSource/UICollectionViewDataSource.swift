@@ -4,9 +4,20 @@ import Foundation
 import UIKit
 
 extension DataSourceController: UICollectionViewDataSource {
+    public func numberOfSections(in collectionView: UICollectionView) -> Int {
+        if sectionCount == 0 {
+            if collectionView.backgroundView == nil || !(collectionView.backgroundView is UILabel) {
+                collectionView.backgroundView = delegate?.backgroundMessageLabel(for: collectionView)
+            }
+            collectionView.backgroundView?.isHidden = false
+        } else {
+            collectionView.backgroundView?.isHidden = true
+        }
+        return sectionCount
+    }
+
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let numberOfRows = rowCount(for: section)
-        return numberOfRows
+        return rowCount(for: section)
     }
 
     public func collectionView(_ collectionView: UICollectionView,
@@ -35,17 +46,5 @@ extension DataSourceController: UICollectionViewDataSource {
             return view
         }
         return UICollectionReusableView()
-    }
-
-    public func numberOfSections(in collectionView: UICollectionView) -> Int {
-        if sectionCount == 0 {
-            if collectionView.backgroundView == nil || !(collectionView.backgroundView is UILabel) {
-                collectionView.backgroundView = delegate?.backgroundMessageLabel(for: collectionView)
-            }
-            collectionView.backgroundView?.isHidden = false
-        } else {
-            collectionView.backgroundView?.isHidden = true
-        }
-        return sectionCount
     }
 }
