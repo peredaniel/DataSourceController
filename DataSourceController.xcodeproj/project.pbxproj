@@ -7,22 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F67FB8D22AAA0550081B42B /* DataSouceController+SectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F67FB8C22AAA0550081B42B /* DataSouceController+SectionManager.swift */; };
+		9F67FB9422AAA41D0081B42B /* DataSourceControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F67FB9322AAA41D0081B42B /* DataSourceControllerDelegate.swift */; };
+		9F67FB9722AAA48F0081B42B /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F67FB9622AAA48F0081B42B /* CellView.swift */; };
+		9F67FB9922AAA4AE0081B42B /* SectionDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F67FB9822AAA4AE0081B42B /* SectionDataModel.swift */; };
+		9F67FB9B22AAA5200081B42B /* DataSourceController+RowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F67FB9A22AAA5200081B42B /* DataSourceController+RowManager.swift */; };
 		9FF358DE22A2D32C00C372BE /* DataSourceController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9FF358DC22A2D32C00C372BE /* DataSourceController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9FF358E922A2D34500C372BE /* DataSourceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF358E422A2D34500C372BE /* DataSourceController.swift */; };
 		9FF358EA22A2D34500C372BE /* UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF358E522A2D34500C372BE /* UICollectionViewDataSource.swift */; };
-		9FF358EB22A2D34500C372BE /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF358E622A2D34500C372BE /* Protocols.swift */; };
-		9FF358EC22A2D34500C372BE /* SectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF358E722A2D34500C372BE /* SectionData.swift */; };
+		9FF358EB22A2D34500C372BE /* CellDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF358E622A2D34500C372BE /* CellDataController.swift */; };
+		9FF358EC22A2D34500C372BE /* SectionDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF358E722A2D34500C372BE /* SectionDataController.swift */; };
 		9FF358ED22A2D34500C372BE /* UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF358E822A2D34500C372BE /* UITableViewDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9F67FB8C22AAA0550081B42B /* DataSouceController+SectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataSouceController+SectionManager.swift"; sourceTree = "<group>"; };
+		9F67FB9322AAA41D0081B42B /* DataSourceControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceControllerDelegate.swift; sourceTree = "<group>"; };
+		9F67FB9622AAA48F0081B42B /* CellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
+		9F67FB9822AAA4AE0081B42B /* SectionDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionDataModel.swift; sourceTree = "<group>"; };
+		9F67FB9A22AAA5200081B42B /* DataSourceController+RowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataSourceController+RowManager.swift"; sourceTree = "<group>"; };
 		9FF358D922A2D32C00C372BE /* DataSourceController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DataSourceController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FF358DC22A2D32C00C372BE /* DataSourceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataSourceController.h; sourceTree = "<group>"; };
 		9FF358DD22A2D32C00C372BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9FF358E422A2D34500C372BE /* DataSourceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSourceController.swift; sourceTree = "<group>"; };
 		9FF358E522A2D34500C372BE /* UICollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewDataSource.swift; sourceTree = "<group>"; };
-		9FF358E622A2D34500C372BE /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
-		9FF358E722A2D34500C372BE /* SectionData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionData.swift; sourceTree = "<group>"; };
+		9FF358E622A2D34500C372BE /* CellDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellDataController.swift; sourceTree = "<group>"; };
+		9FF358E722A2D34500C372BE /* SectionDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionDataController.swift; sourceTree = "<group>"; };
 		9FF358E822A2D34500C372BE /* UITableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -37,6 +47,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9F67FB8E22AAA3A20081B42B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9FF358E422A2D34500C372BE /* DataSourceController.swift */,
+				9F67FB9A22AAA5200081B42B /* DataSourceController+RowManager.swift */,
+				9F67FB8C22AAA0550081B42B /* DataSouceController+SectionManager.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9F67FB8F22AAA3AA0081B42B /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				9F67FB9522AAA4840081B42B /* Cells */,
+				9F67FB9322AAA41D0081B42B /* DataSourceControllerDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		9F67FB9022AAA3B10081B42B /* SectionData */ = {
+			isa = PBXGroup;
+			children = (
+				9FF358E722A2D34500C372BE /* SectionDataController.swift */,
+				9F67FB9822AAA4AE0081B42B /* SectionDataModel.swift */,
+			);
+			path = SectionData;
+			sourceTree = "<group>";
+		};
+		9F67FB9522AAA4840081B42B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				9FF358E622A2D34500C372BE /* CellDataController.swift */,
+				9F67FB9622AAA48F0081B42B /* CellView.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		9FF358CF22A2D32C00C372BE = {
 			isa = PBXGroup;
 			children = (
@@ -56,9 +103,9 @@
 		9FF358DB22A2D32C00C372BE /* DataSourceController */ = {
 			isa = PBXGroup;
 			children = (
-				9FF358E422A2D34500C372BE /* DataSourceController.swift */,
-				9FF358E622A2D34500C372BE /* Protocols.swift */,
-				9FF358E722A2D34500C372BE /* SectionData.swift */,
+				9F67FB8E22AAA3A20081B42B /* Controller */,
+				9F67FB8F22AAA3AA0081B42B /* Protocols */,
+				9F67FB9022AAA3B10081B42B /* SectionData */,
 				9FF358EE22A2D59900C372BE /* UIKit+DataSource */,
 				9FF358DC22A2D32C00C372BE /* DataSourceController.h */,
 				9FF358DD22A2D32C00C372BE /* Info.plist */,
@@ -155,10 +202,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FF358E922A2D34500C372BE /* DataSourceController.swift in Sources */,
-				9FF358EB22A2D34500C372BE /* Protocols.swift in Sources */,
+				9FF358EB22A2D34500C372BE /* CellDataController.swift in Sources */,
+				9F67FB8D22AAA0550081B42B /* DataSouceController+SectionManager.swift in Sources */,
+				9F67FB9422AAA41D0081B42B /* DataSourceControllerDelegate.swift in Sources */,
 				9FF358ED22A2D34500C372BE /* UITableViewDataSource.swift in Sources */,
 				9FF358EA22A2D34500C372BE /* UICollectionViewDataSource.swift in Sources */,
-				9FF358EC22A2D34500C372BE /* SectionData.swift in Sources */,
+				9F67FB9B22AAA5200081B42B /* DataSourceController+RowManager.swift in Sources */,
+				9FF358EC22A2D34500C372BE /* SectionDataController.swift in Sources */,
+				9F67FB9722AAA48F0081B42B /* CellView.swift in Sources */,
+				9F67FB9922AAA4AE0081B42B /* SectionDataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
