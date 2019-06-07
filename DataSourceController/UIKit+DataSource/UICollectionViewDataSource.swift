@@ -5,7 +5,7 @@ import UIKit
 
 extension DataSourceController: UICollectionViewDataSource {
     public func numberOfSections(in collectionView: UICollectionView) -> Int {
-        if sectionCount == 0 {
+        if totalRowCount == 0 {
             if collectionView.backgroundView == nil || !(collectionView.backgroundView is UILabel) {
                 collectionView.backgroundView = delegate?.backgroundMessageLabel(for: collectionView)
             }
