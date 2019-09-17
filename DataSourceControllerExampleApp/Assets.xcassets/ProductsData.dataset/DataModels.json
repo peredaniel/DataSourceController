@@ -1,0 +1,289 @@
+{
+    "phones" : [
+        {
+            "name" : "iPhone 7",
+            "imageName" : "iPhone7",
+            "price" : "449$",
+            "overview" : "",
+            "type" : "iPhone",
+            "variants" : [
+                {
+                    "name" : "Colors",
+                    "options" : ["Black", "Silver", "Gold", "Pink Gold"]
+                },
+                {
+                    "name" : "Storage",
+                    "options" : ["32GB", "128GB"]
+                }
+            ]
+        },
+        {
+            "name" : "iPhone 7 Plus",
+            "imageName" : "iPhone7",
+            "price" : "569$",
+            "overview" : "",
+            "type" : "iPhone",
+            "variants" : [
+                {
+                    "name" : "Colors",
+                    "options" : ["Black", "Silver", "Gold", "Rose Gold"]
+                },
+                {
+                    "name" : "Storage",
+                    "options" : ["32GB", "128GB"]
+                }
+            ]
+        },
+        {
+            "name" : "iPhone 8",
+            "imageName" : "iPhone8",
+            "price" : "599$",
+            "overview" : "",
+            "type" : "iPhone",
+            "variants" : [
+                {
+                    "name" : "Colors",
+                    "options" : ["Space Gray", "Silver", "Gold"]
+                },
+                {
+                    "name" : "Storage",
+                    "options" : ["64GB", "256GB"]
+                }
+            ]
+        },
+        {
+            "name" : "iPhone 8 Plus",
+            "imageName" : "iPhone8",
+            "price" : "699$",
+            "overview" : "",
+            "type" : "iPhone",
+            "variants" : [
+                {
+                    "name" : "Colors",
+                    "options" : ["Space Gray", "Silver", "Gold"]
+                },
+                {
+                    "name" : "Storage",
+                    "options" : ["64GB", "256GB"]
+                }
+            ]
+        },
+        {
+            "name" : "iPhone XS",
+            "imageName" : "iPhoneXS",
+            "price" : "999$",
+            "overview" : "",
+            "type" : "iPhone",
+            "variants" : [
+                {
+                    "name" : "Colors",
+                    "options" : ["Space Gray", "Silver", "Gold"]
+                },
+                {
+                    "name" : "Storage",
+                    "options" : ["64GB", "256GB", "512Gb"]
+                }
+            ]
+        },
+        {
+            "name" : "iPhone XS Max",
+            "imageName" : "iPhoneXS",
+            "price" : "1099$",
+            "overview" : "",
+            "type" : "iPhone",
+            "variants" : [
+                {
+                    "name" : "Colors",
+                    "options" : ["Space Gray", "Silver", "Gold"]
+                },
+                {
+                    "name" : "Storage",
+                    "options" : ["64GB", "256GB", "512Gb"]
+                }
+            ]
+        },
+        {
+            "name" : "iPhone XR",
+            "imageName" : "iPhoneXR",
+            "price" : "749$",
+            "overview" : "",
+            "type" : "iPhone",
+            "variants" : [
+                {
+                    "name" : "Colors",
+                    "options" : ["White", "Black", "Blue", "Yellow", "Coral", "(PRODUCT)RED"]
+                },
+                {
+                    "name" : "Storage",
+                    "options" : ["64GB", "128GB", "256Gb"]
+                }
+            ]
+        }
+    ],
+    "pads" : [
+        {
+            "name" : "iPad 9.7-inch",
+            "imageName" : "iPadHero",
+            "price" : "329$",
+            "overview" : "",
+            "type" : "iPad",
+            "variants" : [
+                {
+                    "name" : "Colors",
+                    "options" : ["Space Gray", "Silver", "Gold"]
+                },
+                {
+                    "name" : "Storage",
+                    "options" : ["32GB", "128GB"]
+                },
+                {
+                    "name" : "Connectivity",
+                    "options" : ["Wi-Fi", "Wi-Fi + Cellular"]
+                }
+            ]
+        },
+        {
+            "name" : "iPad Mini",
+            "imageName" : "iPadMini",
+            "price" : "399$",
+            "overview" : "",
+            "type" : "iPad",
+            "variants" : [
+                {
+                    "name" : "Colors",
+                    "options" : ["Space Gray", "Silver", "Gold"]
+                },
+                {
+                    "name" : "Storage",
+                    "options" : ["64GB", "256GB"]
+                },
+                {
+                    "name" : "Connectivity",
+                    "options" : ["Wi-Fi", "Wi-Fi + Cellular"]
+                }
+            ]
+        },
+        {
+            "name" : "iPad Air",
+            "imageName" : "iPadAir",
+            "price" : "499$",
+            "overview" : "",
+            "type" : "iPad",
+            "variants" : [
+                {
+                    "name" : "Colors",
+                    "options" : ["Space Gray", "Silver", "Gold"]
+                },
+                {
+                    "name" : "Storage",
+                    "options" : ["64GB", "256GB"]
+                },
+                {
+                    "name" : "Connectivity",
+                    "options" : ["Wi-Fi", "Wi-Fi + Cellular"]
+                }
+            ]
+        },
+        {
+            "name" : "iPad Pro 11-inch",
+            "imageName" : "iPadPro",
+            "price" : "799$",
+            "overview" : "",
+            "type" : "iPad",
+            "variants" : [
+                {
+                    "name" : "Colors",
+                    "options" : ["Space Gray", "Silver", "Gold"]
+                },
+                {
+                    "name" : "Storage",
+                    "options" : ["64GB", "256GB", "512GB", "1TB"]
+                },
+                {
+                    "name" : "Connectivity",
+                    "options" : ["Wi-Fi", "Wi-Fi + Cellular"]
+                }
+            ]
+        },
+        {
+            "name" : "iPad Pro 12.9-inch",
+            "imageName" : "iPadPro",
+            "price" : "999$",
+            "overview" : "",
+            "type" : "iPad",
+            "variants" : [
+                {
+                    "name" : "Colors",
+                    "options" : ["Space Gray", "Silver", "Gold"]
+                },
+                {
+                    "name" : "Storage",
+                    "options" : ["64GB", "256GB", "512GB", "1TB"]
+                },
+                {
+                    "name" : "Connectivity",
+                    "options" : ["Wi-Fi", "Wi-Fi + Cellular"]
+                }
+            ]
+        }
+    ],
+    "tvs" : [
+        {
+            "name" : "Apple TV HD",
+            "imageName" : "AppleTVHero",
+            "price" : "149$",
+            "overview" : "",
+            "type" : "AppleTV",
+            "variants" : [ ]
+        },
+        {
+            "name" : "Apple TV 4K",
+            "imageName" : "AppleTV4k",
+            "price" : "179$",
+            "overview" : "",
+            "type" : "AppleTV",
+            "variants" : [
+                {
+                    "name" : "Storage",
+                    "options" : ["32GB", "64GB"]
+                }
+            ]
+        }
+    ],
+    "watches" : [
+        {
+            "name" : "Watch Series 3",
+            "imageName" : "WatchSeries3",
+            "price" : "279$",
+            "overview" : "",
+            "type" : "AppleWatch",
+            "variants" : [
+                {
+                    "name" : "Color",
+                    "options" : ["Silver Aluminum Case with White Sport Band", "Space Gray Aluminium Case with Black Sport Band"]
+                },
+                {
+                    "name" : "Connectivity",
+                    "options" : ["GPS", "GPS + Cellular"]
+                }
+            ]
+        },
+        {
+            "name" : "Watch Series 4",
+            "imageName" : "WatchSeries4",
+            "price" : "399$",
+            "overview" : "",
+            "type" : "AppleWatch",
+            "variants" : [
+                {
+                    "name" : "Color",
+                    "options" : ["Silver Aluminum Case with White Sport Band", "Gold Aluminium Case with Pink Sand Sport Band", "Space Gray Aluminium Case with Black Sport Band", "Silver Aluminum Case with Seashell Sport Loop", "Gold Aluminum Case with Pink Sand Sport Loop", "Space Gray Aluminum Case with Black Sport Loop"]
+                },
+                {
+                    "name" : "Connectivity",
+                    "options" : ["GPS", "GPS + Cellular"]
+                }
+            ]
+        }
+    ]
+}

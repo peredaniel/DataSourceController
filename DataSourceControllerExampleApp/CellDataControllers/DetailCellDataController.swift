@@ -1,22 +1,18 @@
 //  Copyright © 2019 Pedro Daniel Prieto Martínez. All rights reserved.
 
-import Foundation
 import DataSourceController
-
-struct DetailCellData {
-    let mainText: String
-    let detailText: String
-}
+import Foundation
 
 struct DetailCellDataController: CellDataController {
     let reuseIdentifier = "detailCell"
     let titleText: String
     let detailText: String?
+    let image: UIImage?
 
     static func populate(with model: Any) -> CellDataController {
-        guard let model = model as? DetailCellData else {
-            return DetailCellDataController(titleText: "Incorrect data type", detailText: nil)
+        guard let model = model as? Product else {
+            return DetailCellDataController(titleText: "Incorrect data type", detailText: nil, image: nil)
         }
-        return DetailCellDataController(titleText: model.mainText, detailText: model.detailText)
+        return DetailCellDataController(titleText: model.name, detailText: model.price, image: UIImage(named: model.imageName))
     }
 }

@@ -1,10 +1,9 @@
 //  Copyright © 2019 Pedro Daniel Prieto Martínez. All rights reserved.
 
-import UIKit
 import DataSourceController
+import UIKit
 
 class TableViewController: UIViewController {
-
     @IBOutlet private var tableView: UITableView!
 
     var dataSourceController: DataSourceController?
@@ -16,6 +15,7 @@ class TableViewController: UIViewController {
     }
 
     private func configureTableView() {
+        FullProductDetailsCell.register(in: tableView)
         tableView.dataSource = dataSourceController
     }
 }

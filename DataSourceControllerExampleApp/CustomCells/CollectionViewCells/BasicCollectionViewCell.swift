@@ -1,7 +1,7 @@
 //  Copyright © 2019 Pedro Daniel Prieto Martínez. All rights reserved.
 
-import UIKit
 import DataSourceController
+import UIKit
 
 class BasicCollectionViewCell: UICollectionViewCell {
     @IBOutlet private var imageView: UIImageView!
@@ -10,9 +10,7 @@ class BasicCollectionViewCell: UICollectionViewCell {
 
 extension BasicCollectionViewCell: CellView {
     func configure(with dataController: CellDataController) {
-        guard let controller = dataController as? BasicCellDataController else {
-            return
-        }
+        guard let controller = dataController as? BasicCellDataController else { return }
         titleLabel.text = controller.titleText
         imageView.image = controller.image
     }

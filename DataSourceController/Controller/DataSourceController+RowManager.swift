@@ -2,7 +2,7 @@
 
 import Foundation
 
-public protocol RowManager: class {
+public protocol RowManager: AnyObject {
     func add(row modelObject: Any, at indexPath: IndexPath, notify: Bool)
     func update(row modelObject: Any, at indexPath: IndexPath, notify: Bool)
     func update(rows: [IndexPath: Any], notify: Bool)
@@ -10,7 +10,11 @@ public protocol RowManager: class {
 }
 
 extension DataSourceController: RowManager {
-    public func add(row modelObject: Any, at indexPath: IndexPath, notify: Bool = true) {
+    public func add(
+        row modelObject: Any,
+        at indexPath: IndexPath,
+        notify: Bool = true
+    ) {
         guard (0..<sections.count).contains(indexPath.section) else {
             add(section: Section(rows: [modelObject]), notify: notify)
             return
@@ -25,7 +29,11 @@ extension DataSourceController: RowManager {
         if notify { delegate?.dataSourceWasMutated(self, section: indexPath.section) }
     }
 
-    public func update(rows: [Any], atSection index: Int, notify: Bool = true) {
+    public func update(
+        rows: [Any],
+        atSection index: Int,
+        notify: Bool = true
+    ) {
         guard (0..<sectionCount).contains(index) else { return }
         let section = sections[index]
         section.rows = rows
@@ -36,14 +44,21 @@ extension DataSourceController: RowManager {
         }
     }
 
-    public func update(row modelObject: Any, at indexPath: IndexPath, notify: Bool = true) {
+    public func update(
+        row modelObject: Any,
+        at indexPath: IndexPath,
+        notify: Bool = true
+    ) {
         guard (0..<sectionCount).contains(indexPath.section),
             (0..<rowCount(for: indexPath.section)).contains(indexPath.row) else { return }
         sections[indexPath.section].rows[indexPath.row] = modelObject
         if notify { delegate?.dataSourceWasMutated(self, indexPaths: [indexPath]) }
     }
 
-    public func remove(rowAt indexPath: IndexPath, notify: Bool = true) {
+    public func remove(
+        rowAt indexPath: IndexPath,
+        notify: Bool = true
+    ) {
         guard (0..<sectionCount).contains(indexPath.section),
             (0..<rowCount(for: indexPath.section)).contains(indexPath.row) else { return }
         sections[indexPath.section].rows.remove(at: indexPath.row)

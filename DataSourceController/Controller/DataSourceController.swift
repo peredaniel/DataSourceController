@@ -7,7 +7,10 @@ public class Section {
     public var rows: [Any]
     public var sectionData: SectionDataModelType?
 
-    public init(sectionData: SectionDataModelType? = nil, rows: [Any]) {
+    public init(
+        sectionData: SectionDataModelType? = nil,
+        rows: [Any]
+    ) {
         self.sectionData = sectionData
         self.rows = rows
     }
@@ -25,7 +28,10 @@ struct ModelDataControllerPair {
 open class ModelDataControllerMap: NSObject {
     private var modelControllerMap: [ModelDataControllerPair] = []
 
-    public func register(dataController: CellDataController.Type, for model: Any.Type) {
+    public func register(
+        dataController: CellDataController.Type,
+        for model: Any.Type
+    ) {
         let pair = ModelDataControllerPair(model: model, dataController: dataController)
         modelControllerMap.append(pair)
     }
@@ -45,16 +51,25 @@ public class DataSourceController: ModelDataControllerMap {
 
     internal var sections: [Section]
 
-    public init(sections: [Section], delegate: DataSourceControllerDelegate? = nil) {
+    public init(
+        sections: [Section],
+        delegate: DataSourceControllerDelegate? = nil
+    ) {
         self.sections = sections
         self.delegate = delegate
     }
 
-    public convenience init(section: Section, delegate: DataSourceControllerDelegate? = nil) {
+    public convenience init(
+        section: Section,
+        delegate: DataSourceControllerDelegate? = nil
+    ) {
         self.init(sections: [section], delegate: delegate)
     }
 
-    public convenience init(rows: [Any], delegate: DataSourceControllerDelegate? = nil) {
+    public convenience init(
+        rows: [Any],
+        delegate: DataSourceControllerDelegate? = nil
+    ) {
         self.init(sections: [Section(rows: rows)], delegate: delegate)
     }
 
@@ -79,7 +94,7 @@ public class DataSourceController: ModelDataControllerMap {
     func model(at indexPath: IndexPath) -> Any? {
         guard (0..<sectionCount).contains(indexPath.section),
             (0..<sections[indexPath.section].rows.count).contains(indexPath.row) else {
-                return nil
+            return nil
         }
         return sections[indexPath.section].rows[indexPath.row]
     }

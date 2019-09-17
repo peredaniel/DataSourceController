@@ -1,6 +1,5 @@
 //  Copyright © 2019 Pedro Daniel Prieto Martínez. All rights reserved.
 
-import Foundation
 import UIKit
 
 extension DataSourceController: UITableViewDataSource {
@@ -18,15 +17,21 @@ extension DataSourceController: UITableViewDataSource {
         return sectionCount
     }
 
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(
+        _: UITableView,
+        numberOfRowsInSection section: Int
+    ) -> Int {
         return rowCount(for: section)
     }
 
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
         if let modelObject = model(at: indexPath), let dataController = dataController(for: modelObject) {
             let cell = tableView.dequeueReusableCell(withIdentifier: dataController.reuseIdentifier, for: indexPath)
             if let cell = cell as? CellView {
-	            cell.configure(with: dataController)
+                cell.configure(with: dataController)
             }
             return cell
         }
@@ -36,12 +41,18 @@ extension DataSourceController: UITableViewDataSource {
         return defaultCell
     }
 
-    public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    public func tableView(
+        _: UITableView,
+        titleForHeaderInSection section: Int
+    ) -> String? {
         guard let sectionData = data(for: section) else { return nil }
         return SectionDataController(sectionData).headerTitle
     }
 
-    public func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+    public func tableView(
+        _: UITableView,
+        titleForFooterInSection section: Int
+    ) -> String? {
         guard let sectionData = data(for: section) else { return nil }
         return SectionDataController(sectionData).footerTitle
     }

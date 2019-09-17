@@ -1,10 +1,9 @@
 //  Copyright © 2019 Pedro Daniel Prieto Martínez. All rights reserved.
 
-import UIKit
 import DataSourceController
+import UIKit
 
 class CollectionViewController: UIViewController {
-
     @IBOutlet private var collectionView: UICollectionView!
 
     var dataSourceController: DataSourceController?
