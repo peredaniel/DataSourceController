@@ -6,7 +6,7 @@ Pod::Spec.new do |spec|
   spec.license      = { :type => 'MIT', :file => 'LICENSE' }
   spec.authors      = { 'Pedro Daniel Prieto Martínez' => 'math.pedro.daniel.prieto@gmail.com' }
   spec.homepage     = 'https://github.com/peredaniel/DataSourceController'
-  spec.source       = { :git => 'git@github.com:peredaniel/DataSourceController.git', :tag => spec.version }
+  spec.source       = { :git => 'https://github.com/peredaniel/DataSourceController.git', :tag => spec.version }
 
   spec.ios.deployment_target  = '9.0'
   spec.swift_version = '5.0'
