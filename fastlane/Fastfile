@@ -1,0 +1,65 @@
+default_platform(:ios)
+
+####################################################################################################
+####################################################################################################
+
+###################
+# Deployment lane #
+###################
+
+desc "Deploys the podspec file to Trunk"
+desc "Usage example: fastlane deploy_pod"
+lane :deploy_pod do
+	pod_push(
+		path: "DataSourceController.podspec",
+		verbose: false,
+		swift_version: "5.0"
+	)
+end
+
+##############
+# Test lanes #
+##############
+
+platform :ios do
+	desc "Runs framework's unit tests in the specified device."
+	desc "Usage example: fastlane ios test device:'iPhone 8' ios_version:'12.4'"
+	lane :test do |options| 
+		raise "Missing 'device' parameter. Usage: fastlane ios test device:DEVICE ios_version:IOS_VERSION" unless options[:device]
+		raise "Missing 'ios_version' parameter. Usage: fastlane ios test device:DEVICE ios_version:IOS_VERSION" unless options[:device]
+		ios_version = options[:ios_version]
+		scan(
+		    scheme: "DataSourceController",
+		    device: options[:device],
+		    sdk: "iphonesimulator" + "#{ios_version}",
+		    clean: true,
+		    disable_concurrent_testing: true
+  		)
+	end
+end
+
+###############
+# Build lanes #
+###############
+
+desc "Builds the framework. This lane is to make sure that the framework builds correctly and there are no breaking changes."
+desc "Usage example: fastlane build_framework"
+lane :build_framework do
+	xcbuild(
+		scheme: "DataSourceController",
+		clean: true
+	)
+end
+
+desc "Builds the example app for the specified iOS version."
+desc "This lane is to make sure that the example app builds correctly and that breaking API changes are detected before deployment."
+desc "Usage example: fastlane build_example_app ios_version:'12.4'"
+lane :build_example_app do |options|
+	raise "Missing 'ios_version' parameter. Usage: fastlane build_example_app ios_version:IOS_VERSION" unless options[:ios_version]
+	ios_version = options[:ios_version]
+	xcbuild(
+		scheme: "DataSourceControllerExample",
+		sdk: "iphonesimulator" + "#{ios_version}",
+		clean: true
+	)
+end

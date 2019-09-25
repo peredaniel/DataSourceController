@@ -1,0 +1,40 @@
+language: swift
+osx_image: xcode10.3
+
+cache:
+  bundler: true
+  directories:
+    - Carthage
+
+before_script: carthage build --cache-builds --platform iOS
+
+jobs:
+  include:
+  - stage: build
+    name: "Building framework"
+    script: bundle exec fastlane build_framework
+
+  - stage: build
+    name: "Building example app"
+    script: bundle exec fastlane build_example_app ios_version:'12.4'
+
+  - stage: test
+    name: "Running unit tests"
+    script: bundle exec fastlane ios test device:'iPhone 8'
+    after_success: bundle exec slather
+
+  - stage: deploy_pod
+    name: "Deploying pod to Trunk"
+    script: bundle exec fastlane deploy_pod
+
+stages:
+- name: build
+  if: (type = pull_request OR type = push) AND branch = master
+
+- name: test
+  if: (type = pull_request OR type = push) AND branch = master
+
+- name: deploy_pod
+  if: type = push AND tag IS present
+
+after_script: bash Scripts/telegram_notification.sh

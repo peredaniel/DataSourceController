@@ -1,0 +1,8 @@
+coverage_service: coveralls
+xcodeproj: DataSourceController.xcodeproj
+scheme: DataSourceController
+source_directory: DataSourceController/*
+ignore:
+  - DataSourceControllerTests/*
+  - DataSourceControllerExampleApp/*
+  - DataSourceController/Protocols/DataSourceControllerDelegate.swift
