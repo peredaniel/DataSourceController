@@ -28,7 +28,7 @@ You may install the framework through a dependency manager.
 
 To use CocoaPods, first make sure you have installed it and updated it to the latest version by following their instructions on [cocoapods.org](https://cocoapods.org). Then, you should complete the following steps
 
-1. Add MathExpression to your `Podfile`:
+1. Add DataSourceController to your `Podfile`:
 
 ```ruby
 pod 'DataSourceController', '~>1.0.0'
@@ -44,7 +44,7 @@ $ pod install --repo-update
 
 To use Carthage, first make sure you have installed it and updated it to the latest version by following their instructions on [their repo](https://github.com/Carthage/Carthage).
 
-1. Add MathExpression to your `Cartfile`:
+1. Add DataSourceController to your `Cartfile`:
 
 ```ruby
 github "peredaniel/DataSourceController" ~> 1.0.0
