@@ -41,6 +41,17 @@ Usage example: fastlane build_example_app ios_version:'12.4'
 
 ----
 
+## iOS
+### ios test
+```
+fastlane ios test
+```
+Runs framework's unit tests in the specified device.
+
+Usage example: fastlane ios test device:'iPhone 8' ios_version:'12.4'
+
+----
+
 This README.md is auto-generated and will be re-generated every time [fastlane](https://fastlane.tools) is run.
 More information about fastlane can be found on [fastlane.tools](https://fastlane.tools).
 The documentation of fastlane can be found on [docs.fastlane.tools](https://docs.fastlane.tools).
