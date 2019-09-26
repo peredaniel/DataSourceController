@@ -26,7 +26,7 @@ platform :ios do
 	desc "Usage example: fastlane ios test device:'iPhone 8' ios_version:'12.4'"
 	lane :test do |options| 
 		raise "Missing 'device' parameter. Usage: fastlane ios test device:DEVICE ios_version:IOS_VERSION" unless options[:device]
-		raise "Missing 'ios_version' parameter. Usage: fastlane ios test device:DEVICE ios_version:IOS_VERSION" unless options[:device]
+		raise "Missing 'ios_version' parameter. Usage: fastlane ios test device:DEVICE ios_version:IOS_VERSION" unless options[:ios_version]
 		ios_version = options[:ios_version]
 		scan(
 		    scheme: "DataSourceController",

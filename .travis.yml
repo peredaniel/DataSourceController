@@ -20,7 +20,7 @@ jobs:
 
   - stage: test
     name: "Running unit tests"
-    script: bundle exec fastlane ios test device:'iPhone 8'
+    script: bundle exec fastlane ios test device:'iPhone 8' ios_version:'12.4'
     after_success: bundle exec slather
 
   - stage: deploy_pod
