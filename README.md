@@ -182,7 +182,7 @@ class Section {
 }
 ```
 Note that the `sectionData` parameter is optional and may be omitted when initializing a `Section` instance. The `SectionDataModelType` is any object conforming to the following protocol:
-```
+```swift
 protocol SectionDataModelType {
     var header: String? { get }
     var footer: String? { get }
@@ -272,4 +272,4 @@ This will re-format every `*.swift` file inside the project folder to follow the
 
 ### Continuous Integration and Deployment
 
-We use [Travis CI](https://travis-ci.com/) as our continuous integration solution to run builds on open pull requests and merges to `master`. Builds are required to pass in order to merge any pull request to `master`. Travis CI is also responsible for deploying the library to Cocoapods' Trunk repository when a new tag is pushed.
+We use [Travis CI](https://travis-ci.com/) as our continuous integration solution to run builds and tests on open pull requests and merges to `master`. Tests are required to pass in order to merge any pull request to `master`. Travis CI is also responsible for deploying the library to Cocoapods' Trunk repository when a new tag is pushed.
