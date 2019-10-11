@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = 'DataSourceController'
-  spec.version      = '1.0.0'
+  spec.version      = '1.1.0'
   spec.summary      = 'A controller to handle data sources'
   spec.description  = 'This framework provides a controller to manage table view and collection views datasources'
   spec.license      = { :type => 'MIT', :file => 'LICENSE' }
