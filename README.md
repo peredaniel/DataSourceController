@@ -205,6 +205,7 @@ The `delegate` parameter passed in the initializer of the `DataSourceController`
 ```swift
 protocol DataSourceControllerDelegate: AnyObject {
     func backgroundMessageLabel(for view: UIView) -> UILabel?
+    func backgroundEmptyView(for view: UIView) -> UIView?
     func dataSourceWasMutated(_: DataSourceController)
     func dataSourceWasMutated(_: DataSourceController, section: Int)
     func dataSourceWasMutated(_: DataSourceController, rows: [IndexPath])
@@ -214,11 +215,12 @@ All functions have a default empty implementation to make them optional protocol
 
 That is, the delegate mainly notifies of changes in the `DataSourceController` instance triggered by the mutating functions available in the API (see [API Reference](#api-reference) below for details). The delegate will usually be the object with the `UITableView` or `UICollectionView` instance, since most likely a part of the displayed list will need to be reloaded.
 
-In addition, in case the `totalRowCount` property of the `DataSourceController` instance is 0 (meaning that there are no rows), the controller will try to display the `UILabel` instance provided by the function
+In addition, in case the `totalRowCount` property of the `DataSourceController` instance is 0 (meaning that there are no rows), the controller will try to display either the `UIView` or the `UILabel` instances provided by the functions
 ```swift
 func backgroundMessageLabel(for view: UIView) -> UILabel?
+func backgroundEmptyView(for view: UIView) -> UIView?
 ```
-as the background. Note that this function is optional, and therefore it may be omitted. The parameter `view` is either the `UITableView` or `UICollectionView` instance whose `dataSource` is the `DataSourceController`.
+as the background. Note that both these functions are optional, and therefore it may be omitted. If both functions are implemented, the framework will prioritize the `backgroundEmptyView(for:)` function. The parameter `view` is either the `UITableView` or `UICollectionView` instance whose `dataSource` is the `DataSourceController`.
 
 ### UITableView header and footer
 
