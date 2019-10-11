@@ -5,11 +5,12 @@ import UIKit
 extension DataSourceController: UITableViewDataSource {
     public func numberOfSections(in tableView: UITableView) -> Int {
         if totalRowCount == 0 {
-            if tableView.backgroundView == nil || !(tableView.backgroundView is UILabel) {
-                tableView.backgroundView = delegate?.backgroundMessageLabel(for: tableView)
+            let backgroundView = delegate?.backgroundEmptyView(for: tableView) ?? delegate?.backgroundMessageLabel(for: tableView)
+            if backgroundView != nil {
+                tableView.backgroundView = backgroundView
+                tableView.backgroundView?.isHidden = false
+                tableView.separatorStyle = .none
             }
-            tableView.backgroundView?.isHidden = false
-            tableView.separatorStyle = .none
         } else {
             tableView.separatorStyle = .singleLine
             tableView.backgroundView?.isHidden = true

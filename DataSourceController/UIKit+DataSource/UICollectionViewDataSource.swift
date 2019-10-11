@@ -5,10 +5,11 @@ import UIKit
 extension DataSourceController: UICollectionViewDataSource {
     public func numberOfSections(in collectionView: UICollectionView) -> Int {
         if totalRowCount == 0 {
-            if collectionView.backgroundView == nil || !(collectionView.backgroundView is UILabel) {
-                collectionView.backgroundView = delegate?.backgroundMessageLabel(for: collectionView)
+            let backgroundView = delegate?.backgroundEmptyView(for: collectionView) ?? delegate?.backgroundMessageLabel(for: collectionView)
+            if backgroundView != nil {
+                collectionView.backgroundView = backgroundView
+	            collectionView.backgroundView?.isHidden = false
             }
-            collectionView.backgroundView?.isHidden = false
         } else {
             collectionView.backgroundView?.isHidden = true
         }
