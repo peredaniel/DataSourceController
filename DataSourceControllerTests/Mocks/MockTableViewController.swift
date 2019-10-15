@@ -23,7 +23,7 @@ class MockTableViewController: UIViewController {
 }
 
 extension MockTableViewController: DataSourceControllerDelegate {
-    func backgroundMessageLabel(for view: UIView) -> UILabel? {
+    func backgroundEmptyView(for view: UIView) -> UIView? {
         let label = UILabel(frame: CGRect(origin: .zero, size: view.bounds.size))
         label.text = "Empty collection!"
         label.textAlignment = .center
