@@ -28,7 +28,7 @@ fastlane build_framework
 ```
 Builds the framework. This lane is to make sure that the framework builds correctly and there are no breaking changes.
 
-Usage example: fastlane build_framework
+Usage example: fastlane build_framework ios_version:'12.4'
 ### build_example_app
 ```
 fastlane build_example_app
