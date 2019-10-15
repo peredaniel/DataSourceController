@@ -13,6 +13,7 @@ lane :deploy_pod do
 	pod_push(
 		path: "DataSourceController.podspec",
 		verbose: false,
+		allow_warnings: true,
 		swift_version: "5.0"
 	)
 end
@@ -43,10 +44,13 @@ end
 ###############
 
 desc "Builds the framework. This lane is to make sure that the framework builds correctly and there are no breaking changes."
-desc "Usage example: fastlane build_framework"
-lane :build_framework do
+desc "Usage example: fastlane build_framework ios_version:'12.4'"
+lane :build_framework do |options|
+	raise "Missing 'ios_version' parameter. Usage: fastlane build_framework ios_version:IOS_VERSION" unless options[:ios_version]
+	ios_version = options[:ios_version]
 	xcbuild(
 		scheme: "DataSourceController",
+		sdk: "iphonesimulator" + "#{ios_version}",
 		clean: true
 	)
 end
