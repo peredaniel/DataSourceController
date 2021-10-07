@@ -6,8 +6,6 @@ cache:
   directories:
     - Carthage
 
-before_script: carthage build --cache-builds --platform iOS
-
 jobs:
   include:
   - stage: build
