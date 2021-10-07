@@ -4,15 +4,17 @@ import UIKit
 
 extension DataSourceController: UITableViewDataSource {
     public func numberOfSections(in tableView: UITableView) -> Int {
-        if totalRowCount == 0 {
-            let backgroundView = delegate?.backgroundEmptyView(for: tableView) ?? delegate?.backgroundMessageLabel(for: tableView)
-            if backgroundView != nil {
+        if totalRowCount == .zero {
+            if let backgroundView = delegate?.backgroundEmptyView(for: tableView) {
                 tableView.backgroundView = backgroundView
                 tableView.backgroundView?.isHidden = false
+                tableViewSeparatorStyle = tableView.separatorStyle
                 tableView.separatorStyle = .none
             }
         } else {
-            tableView.separatorStyle = .singleLine
+            if let separatorStyle = tableViewSeparatorStyle {
+                tableView.separatorStyle = separatorStyle
+            }
             tableView.backgroundView?.isHidden = true
         }
         return sectionCount
