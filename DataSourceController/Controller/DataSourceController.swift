@@ -21,7 +21,7 @@ struct ModelDataControllerPair {
     let dataController: CellDataController.Type
 
     func modelMatches(_ modelInstance: Any) -> Bool {
-        return model == type(of: modelInstance)
+        model == type(of: modelInstance)
     }
 }
 
@@ -49,6 +49,7 @@ public class ModelDataControllerMap: NSObject {
 }
 
 public class DataSourceController: ModelDataControllerMap {
+    internal var tableViewSeparatorStyle: UITableViewCell.SeparatorStyle?
     public weak var delegate: DataSourceControllerDelegate?
 
     internal var sections: [Section]
@@ -75,6 +76,13 @@ public class DataSourceController: ModelDataControllerMap {
         self.init(sections: [Section(rows: rows)], delegate: delegate)
     }
 
+    public convenience init(
+        row: Any,
+        delegate: DataSourceControllerDelegate? = nil
+    ) {
+        self.init(sections: [Section(rows: [row])], delegate: delegate)
+    }
+
     public func data(for section: Int) -> SectionDataModelType? {
         guard (0..<sectionCount).contains(section) else { return nil }
         return sections[section].sectionData
@@ -90,7 +98,7 @@ public class DataSourceController: ModelDataControllerMap {
     }
 
     public var totalRowCount: Int {
-        sections.flatMap { $0.rows }.count
+        sections.reduce(.zero) { $0 + $1.rows.count }
     }
 
     public func modelObject(at indexPath: IndexPath) -> Any? {

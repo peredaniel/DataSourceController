@@ -115,6 +115,8 @@ This sets the text in the `textLabel` property of a `UITableViewCell` if the dat
 
 Now that we have our data controller and our cells ready for action, we may create an instance of a `DataSourceController` using one of the following initializers:
 ```swift
+init(row: Any, delegate: DataSourceControllerDelegate?)
+
 init(rows: [Any], delegate: DataSourceControllerDelegate?)
 
 init(section: Section, delegate: DataSourceControllerDelegate?)
@@ -122,9 +124,10 @@ init(section: Section, delegate: DataSourceControllerDelegate?)
 init(sections: [Section], delegate: DataSourceControllerDelegate?)
 ```
 These initializers cover every possible situation that you may need:
-1. The objects to be listed are contained in an array and we require no header or footer.
-2. We require a single section with either header, footer or both. We can also omit both, thus returning to the previous case.
-3. We require several sections in the order given by the array, with one or more having either header, footer or both. We can also omit all the headers and footers.
+1. A single object to be listed with not header or footer.
+2. The objects to be listed are contained in an array and we require no header or footer. Using an array with a single object is equivalent to the previous case.
+3. We require a single section with either header, footer or both. We can also omit both, thus returning to the previous case.
+4. We require several sections in the order given by the array, with one or more having either header, footer or both. We can also omit all the headers and footers.
 
 *Note:* The `delegate` is optional and, in fact, can be omitted. It can also be assigned after the creation. We will describe it later.
 
@@ -215,12 +218,13 @@ All functions have a default empty implementation to make them optional protocol
 
 That is, the delegate mainly notifies of changes in the `DataSourceController` instance triggered by the mutating functions available in the API (see [API Reference](#api-reference) below for details). The delegate will usually be the object with the `UITableView` or `UICollectionView` instance, since most likely a part of the displayed list will need to be reloaded.
 
-In addition, in case the `totalRowCount` property of the `DataSourceController` instance is 0 (meaning that there are no rows), the controller will try to display either the `UIView` or the `UILabel` instances provided by the functions
+In addition, in case the `totalRowCount` property of the `DataSourceController` instance is 0 (meaning that there are no rows), the controller will try to display the `UIView` instance provided by the function
 ```swift
-func backgroundMessageLabel(for view: UIView) -> UILabel?
 func backgroundEmptyView(for view: UIView) -> UIView?
 ```
-as the background. Note that both these functions are optional, and therefore it may be omitted. If both functions are implemented, the framework will prioritize the `backgroundEmptyView(for:)` function. The parameter `view` is either the `UITableView` or `UICollectionView` instance whose `dataSource` is the `DataSourceController`.
+as the background. Note that this function is optional, and therefore it may be omitted. The parameter `view` is either the `UITableView` or `UICollectionView` instance whose `dataSource` is the `DataSourceController`.
+
+**Note**: As of version 1.2, the delegate function `backgroundMessageLabel(for:) -> UILabel?` has been removed from the protocol declaration and cannot be used. Please use the function `backgroundEmptyView(for:) -> UIView?`.
 
 ### UITableView header and footer
 
