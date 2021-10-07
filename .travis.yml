@@ -1,10 +1,7 @@
 language: swift
 osx_image: xcode12.5
 
-cache:
-  bundler: true
-  directories:
-    - Carthage
+cache: bundler
 
 jobs:
   include:
