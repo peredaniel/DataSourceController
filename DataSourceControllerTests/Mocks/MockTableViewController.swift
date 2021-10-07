@@ -35,7 +35,7 @@ extension MockTableViewController: DataSourceControllerDelegate {
 extension UITableViewCell: CellView {
     public func configure(with dataController: CellDataController) {
         guard let mockController = dataController as? MockCellDataController,
-            mockController.populateFunctionHasBeenCalled else { return }
+              mockController.populateFunctionHasBeenCalled else { return }
         textLabel?.text = mockController.title
     }
 }

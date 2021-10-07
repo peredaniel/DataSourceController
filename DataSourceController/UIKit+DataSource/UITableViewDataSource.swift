@@ -22,7 +22,7 @@ extension DataSourceController: UITableViewDataSource {
         _: UITableView,
         numberOfRowsInSection section: Int
     ) -> Int {
-        return rowCount(for: section)
+        rowCount(for: section)
     }
 
     public func tableView(
@@ -37,7 +37,7 @@ extension DataSourceController: UITableViewDataSource {
             return cell
         }
         let defaultCell = UITableViewCell(style: .default, reuseIdentifier: "UITableViewCell")
-        defaultCell.textLabel?.numberOfLines = 0
+        defaultCell.textLabel?.numberOfLines = .zero
         defaultCell.textLabel?.text = "Error: missing model or data controller at \(indexPath)"
         defaultCell.contentView.backgroundColor = .red
         return defaultCell

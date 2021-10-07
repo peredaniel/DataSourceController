@@ -35,7 +35,7 @@ class MenuViewController: UIViewController {
 
 extension MenuViewController: UITableViewDataSource {
     func numberOfSections(in _: UITableView) -> Int {
-        return menuEntries.count
+        menuEntries.count
     }
 
     func tableView(
@@ -53,7 +53,7 @@ extension MenuViewController: UITableViewDataSource {
         _: UITableView,
         numberOfRowsInSection section: Int
     ) -> Int {
-        return menuEntries[section].count
+        menuEntries[section].count
     }
 
     func tableView(

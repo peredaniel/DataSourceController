@@ -65,7 +65,7 @@ extension MockCollectionViewController: DataSourceControllerDelegate {
 extension UICollectionReusableView: CellView {
     public func configure(with dataController: CellDataController) {
         guard let mockController = dataController as? MockCellDataController,
-            mockController.populateFunctionHasBeenCalled else { return }
+              mockController.populateFunctionHasBeenCalled else { return }
         if let cell = self as? UICollectionViewCell {
             for view in cell.contentView.subviews {
                 view.removeFromSuperview()

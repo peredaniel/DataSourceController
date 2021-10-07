@@ -13,8 +13,8 @@ struct DataModels: Decodable {
 extension DataModels {
     init() {
         guard let url = DataModels.url(),
-            let data = try? Data(contentsOf: url),
-            let dataModels = try? JSONDecoder().decode(DataModels.self, from: data)
+              let data = try? Data(contentsOf: url),
+              let dataModels = try? JSONDecoder().decode(DataModels.self, from: data)
         else {
             self = DataModels(phones: [], pads: [], tvs: [], watches: [])
             return

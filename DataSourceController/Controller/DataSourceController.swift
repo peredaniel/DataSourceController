@@ -81,23 +81,21 @@ public class DataSourceController: ModelDataControllerMap {
     }
 
     var sectionCount: Int {
-        return sections.count
+        sections.count
     }
 
     func rowCount(for section: Int) -> Int {
-        guard (0..<sectionCount).contains(section) else { return 0 }
+        guard (0..<sectionCount).contains(section) else { return .zero }
         return sections[section].rows.count
     }
 
     public var totalRowCount: Int {
-        return sections.flatMap { $0.rows }.count
+        sections.flatMap { $0.rows }.count
     }
 
     public func modelObject(at indexPath: IndexPath) -> Any? {
         guard (0..<sectionCount).contains(indexPath.section),
-            (0..<sections[indexPath.section].rows.count).contains(indexPath.row) else {
-            return nil
-        }
+              (0..<sections[indexPath.section].rows.count).contains(indexPath.row) else { return nil }
         return sections[indexPath.section].rows[indexPath.row]
     }
 }
