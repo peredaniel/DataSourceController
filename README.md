@@ -31,7 +31,7 @@ To use CocoaPods, first make sure you have installed it and updated it to the la
 1. Add DataSourceController to your `Podfile`:
 
 ```ruby
-pod 'DataSourceController', '~>1.0.0'
+pod 'DataSourceController', '~>1.2.0'
 ```
 
 2. Update your pod sources and install the new pod by executing the following command in command line:
@@ -47,7 +47,7 @@ To use Carthage, first make sure you have installed it and updated it to the lat
 1. Add DataSourceController to your `Cartfile`:
 
 ```ruby
-github "peredaniel/DataSourceController" ~> 1.0.0
+github "peredaniel/DataSourceController" ~> 1.2.0
 ```
 
 2. Install the new framework by running Carthage:
@@ -61,7 +61,7 @@ $ carthage update
 To install using Swift Package Manager, add this to the `dependencies` section in your `Package.swift` file:
 
 ```swift
-.package(url: "https://github.com/peredaniel/DataSourceController.git", .upToNextMinor(from: "1.0.0")),
+.package(url: "https://github.com/peredaniel/DataSourceController.git", .upToNextMinor(from: "1.2.0")),
 ```
 
 ## Getting started
