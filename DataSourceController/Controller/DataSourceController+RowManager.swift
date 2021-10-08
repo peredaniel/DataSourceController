@@ -36,7 +36,7 @@ extension DataSourceController: RowManager {
         notify: Bool = true
     ) {
         guard (0..<sectionCount).contains(indexPath.section),
-            (0..<rowCount(for: indexPath.section)).contains(indexPath.row) else { return }
+              (0..<rowCount(for: indexPath.section)).contains(indexPath.row) else { return }
         sections[indexPath.section].rows[indexPath.row] = modelObject
         if notify { delegate?.dataSourceWasMutated(self, rows: [indexPath]) }
     }
@@ -75,9 +75,9 @@ extension DataSourceController: RowManager {
         notify: Bool = true
     ) {
         guard (0..<sectionCount).contains(indexPath.section),
-            (0..<rowCount(for: indexPath.section)).contains(indexPath.row) else { return }
+              (0..<rowCount(for: indexPath.section)).contains(indexPath.row) else { return }
         sections[indexPath.section].rows.remove(at: indexPath.row)
-        if rowCount(for: indexPath.section) == 0 { remove(sectionAt: indexPath.section, notify: false) }
+        if rowCount(for: indexPath.section) == .zero { remove(sectionAt: indexPath.section, notify: false) }
         if notify { delegate?.dataSourceWasMutated(self) }
     }
 }

@@ -13,7 +13,7 @@ class CoreClassTests: XCTestCase {
         // When
         let controller = DataSourceController(rows: rows)
 
-        let withinBoundsSection = 0
+        let withinBoundsSection: Int = .zero
         let outOfBoundsSection = Int.random(in: 1...Int.max)
         let withinBoundsIndexPath = IndexPath(row: Int.random(in: 0..<rows.count), section: withinBoundsSection)
         let outOfBoundsIndexPathBySection = IndexPath(row: Int.random(in: Int.min...Int.max), section: outOfBoundsSection)
@@ -22,7 +22,7 @@ class CoreClassTests: XCTestCase {
         // Then
         XCTAssertEqual(controller.sectionCount, 1)
         XCTAssertEqual(controller.rowCount(for: withinBoundsSection), dataModels.phones.count)
-        XCTAssertEqual(controller.rowCount(for: outOfBoundsSection), 0)
+        XCTAssertEqual(controller.rowCount(for: outOfBoundsSection), .zero)
         XCTAssertEqual(controller.totalRowCount, dataModels.phones.count)
 
         XCTAssertNil(controller.data(for: withinBoundsSection))
@@ -135,7 +135,7 @@ class CoreClassTests: XCTestCase {
         // Then
         XCTAssertEqual(controller.sectionCount, sections.count)
         XCTAssertEqual(controller.rowCount(for: withinBoundsSection), sections[withinBoundsSection].rows.count)
-        XCTAssertEqual(controller.rowCount(for: outOfBoundsSection), 0)
+        XCTAssertEqual(controller.rowCount(for: outOfBoundsSection), .zero)
         XCTAssertEqual(controller.totalRowCount, sections.flatMap { $0.rows }.count)
 
         XCTAssertNil(controller.data(for: sectionNoData))
@@ -165,7 +165,7 @@ class CoreClassTests: XCTestCase {
         // Then
         XCTAssertEqual(controller.sectionCount, sections.count)
         XCTAssertEqual(controller.rowCount(for: withinBoundsSection), sections[withinBoundsSection].rows.count)
-        XCTAssertEqual(controller.rowCount(for: outOfBoundsSection), 0)
+        XCTAssertEqual(controller.rowCount(for: outOfBoundsSection), .zero)
         XCTAssertEqual(controller.totalRowCount, sections.flatMap { $0.rows }.count)
 
         XCTAssertNil(controller.data(for: outOfBoundsSection))

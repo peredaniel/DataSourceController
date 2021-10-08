@@ -4,15 +4,17 @@ import UIKit
 
 extension DataSourceController: UITableViewDataSource {
     public func numberOfSections(in tableView: UITableView) -> Int {
-        if totalRowCount == 0 {
-            let backgroundView = delegate?.backgroundEmptyView(for: tableView) ?? delegate?.backgroundMessageLabel(for: tableView)
-            if backgroundView != nil {
+        if totalRowCount == .zero {
+            if let backgroundView = delegate?.backgroundEmptyView(for: tableView) {
                 tableView.backgroundView = backgroundView
                 tableView.backgroundView?.isHidden = false
+                tableViewSeparatorStyle = tableView.separatorStyle
                 tableView.separatorStyle = .none
             }
         } else {
-            tableView.separatorStyle = .singleLine
+            if let separatorStyle = tableViewSeparatorStyle {
+                tableView.separatorStyle = separatorStyle
+            }
             tableView.backgroundView?.isHidden = true
         }
         return sectionCount
@@ -22,7 +24,7 @@ extension DataSourceController: UITableViewDataSource {
         _: UITableView,
         numberOfRowsInSection section: Int
     ) -> Int {
-        return rowCount(for: section)
+        rowCount(for: section)
     }
 
     public func tableView(
@@ -37,7 +39,7 @@ extension DataSourceController: UITableViewDataSource {
             return cell
         }
         let defaultCell = UITableViewCell(style: .default, reuseIdentifier: "UITableViewCell")
-        defaultCell.textLabel?.numberOfLines = 0
+        defaultCell.textLabel?.numberOfLines = .zero
         defaultCell.textLabel?.text = "Error: missing model or data controller at \(indexPath)"
         defaultCell.contentView.backgroundColor = .red
         return defaultCell

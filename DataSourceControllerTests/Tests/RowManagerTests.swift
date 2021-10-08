@@ -41,7 +41,7 @@ class RowManagerTests: XCTestCase {
         let delegate = MockDataSourceControllerDelegate()
         delegate.didMutateDataSource = {
             XCTAssertEqual(controller.sectionCount, sections.count + 1)
-            XCTAssertEqual(controller.modelObject(at: IndexPath(row: 0, section: sections.count)) as? String, newObject)
+            XCTAssertEqual(controller.modelObject(at: IndexPath(row: .zero, section: sections.count)) as? String, newObject)
             mutationExpectation.fulfill()
         }
         controller.delegate = delegate
@@ -347,7 +347,7 @@ class RowManagerTests: XCTestCase {
         let controller = DataSourceController(sections: sections)
 
         let sectionIndex = sections.count + 1
-        let indexPath = IndexPath(row: 0, section: sectionIndex)
+        let indexPath = IndexPath(row: .zero, section: sectionIndex)
 
         controller.remove(rowAt: indexPath, notify: true)
         XCTAssertEqual(controller.sections.flatMap { $0.rows as! [Product] }, sections.flatMap { $0.rows as! [Product] })

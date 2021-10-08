@@ -10,8 +10,9 @@ enum DataProvider {
 
     static func loadDataModels() -> AppleStoreProducts {
         guard let data = NSDataAsset(name: Constant.assetName)?.data,
-            let dataModels = try? JSONDecoder().decode(AppleStoreProducts.self, from: data) else {
-            return AppleStoreProducts.fallback
+              let dataModels = try? JSONDecoder().decode(AppleStoreProducts.self, from: data)
+        else {
+            return .fallback
         }
         return dataModels
     }
@@ -19,6 +20,6 @@ enum DataProvider {
 
 private extension AppleStoreProducts {
     static var fallback: AppleStoreProducts {
-        return AppleStoreProducts(phones: [], pads: [], tvs: [], watches: [])
+        AppleStoreProducts(phones: [], pads: [], tvs: [], watches: [])
     }
 }

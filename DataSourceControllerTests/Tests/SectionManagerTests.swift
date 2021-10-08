@@ -12,7 +12,7 @@ class SectionManagerTests: XCTestCase {
         let section = dataModels.singleSectionWithSectionData
         let controller = DataSourceController(section: section)
 
-        let newSectionIndex = 0
+        let newSectionIndex: Int = .zero
         let newSection = Section(sectionData: SectionDataModel(header: "New header", footer: "New footer"), rows: dataModels.pads)
         let sectionCount = 1
 
@@ -68,17 +68,17 @@ class SectionManagerTests: XCTestCase {
         let mutationExpectation = expectation(description: "dataSourceWasMutated(_:section:) has been called")
         let delegate = MockDataSourceControllerDelegate()
         delegate.didMutateSection = { index in
-            XCTAssertEqual(index, 0)
+            XCTAssertEqual(index, .zero)
             XCTAssertNotEqual(controller.sections[index].rows as! [Product], self.dataModels.phones)
             XCTAssertEqual(controller.sections[index].rows as! [Product], newSection.rows as! [Product])
             XCTAssertNotNil(controller.data(for: index))
-            XCTAssertEqual(controller.data(for: 0)?.header, newSection.sectionData?.header)
-            XCTAssertEqual(controller.data(for: 0)?.footer, newSection.sectionData?.footer)
+            XCTAssertEqual(controller.data(for: .zero)?.header, newSection.sectionData?.header)
+            XCTAssertEqual(controller.data(for: .zero)?.footer, newSection.sectionData?.footer)
             mutationExpectation.fulfill()
         }
         controller.delegate = delegate
 
-        controller.update(section: newSection, at: 0, notify: true)
+        controller.update(section: newSection, at: .zero, notify: true)
         waitForExpectations(timeout: 1.0)
     }
 
@@ -90,10 +90,10 @@ class SectionManagerTests: XCTestCase {
 
         controller.update(section: newSection, at: 2, notify: true)
 
-        XCTAssertEqual(controller.sections[0].rows as! [Product], dataModels.phones)
-        XCTAssertNotNil(controller.data(for: 0))
-        XCTAssertNotEqual(controller.data(for: 0)?.header, newSection.sectionData?.header)
-        XCTAssertNotEqual(controller.data(for: 0)?.footer, newSection.sectionData?.footer)
+        XCTAssertEqual(controller.sections[.zero].rows as! [Product], dataModels.phones)
+        XCTAssertNotNil(controller.data(for: .zero))
+        XCTAssertNotEqual(controller.data(for: .zero)?.header, newSection.sectionData?.header)
+        XCTAssertNotEqual(controller.data(for: .zero)?.footer, newSection.sectionData?.footer)
     }
 
     // MARK: - Update section data
@@ -156,7 +156,7 @@ class SectionManagerTests: XCTestCase {
         let delegate = MockDataSourceControllerDelegate()
         delegate.didMutateDataSource = {
             XCTAssertEqual(controller.sectionCount, newSections.count)
-            XCTAssertNil(controller.data(for: 0))
+            XCTAssertNil(controller.data(for: .zero))
             mutationExpectation.fulfill()
         }
         controller.delegate = delegate
@@ -206,7 +206,7 @@ class SectionManagerTests: XCTestCase {
         let mutationExpectation = expectation(description: "dataSourceWasMutated(_:) has been called")
         let delegate = MockDataSourceControllerDelegate()
         delegate.didMutateDataSource = {
-            XCTAssertEqual(controller.sectionCount, 0)
+            XCTAssertEqual(controller.sectionCount, .zero)
             mutationExpectation.fulfill()
         }
         controller.delegate = delegate

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,7 @@
 		9F0038A722B137C60012213F /* AppleStoreProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0038A622B137C60012213F /* AppleStoreProducts.swift */; };
 		9F04F91F22B24AE4006A6B21 /* DataSourceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F04F91E22B24AE4006A6B21 /* DataSourceProvider.swift */; };
 		9F04F92322B25EF3006A6B21 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F04F92222B25EF3006A6B21 /* DataProvider.swift */; };
+		9F585407270F00CD0088AF64 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 9F585406270F00CD0088AF64 /* SnapshotTesting */; };
 		9F67FB8D22AAA0550081B42B /* DataSouceController+SectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F67FB8C22AAA0550081B42B /* DataSouceController+SectionManager.swift */; };
 		9F67FB9422AAA41D0081B42B /* DataSourceControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F67FB9322AAA41D0081B42B /* DataSourceControllerDelegate.swift */; };
 		9F67FB9722AAA48F0081B42B /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F67FB9622AAA48F0081B42B /* CellView.swift */; };
@@ -34,7 +35,6 @@
 		9FCEDA52233B700800C4DA83 /* MockTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCEDA51233B700800C4DA83 /* MockTableViewController.swift */; };
 		9FCEDA59233B8E1000C4DA83 /* MockCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCEDA58233B8E1000C4DA83 /* MockCollectionViewController.swift */; };
 		9FCEDA5B233B8EE500C4DA83 /* UICollectionViewDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCEDA5A233B8EE500C4DA83 /* UICollectionViewDataSourceTests.swift */; };
-		9FEC781D233B34F600C2FCAA /* SnapshotTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FEC781C233B34F500C2FCAA /* SnapshotTesting.framework */; };
 		9FF358DE22A2D32C00C372BE /* DataSourceController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9FF358DC22A2D32C00C372BE /* DataSourceController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9FF358E922A2D34500C372BE /* DataSourceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF358E422A2D34500C372BE /* DataSourceController.swift */; };
 		9FF358EA22A2D34500C372BE /* UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF358E522A2D34500C372BE /* UICollectionViewDataSource.swift */; };
@@ -145,7 +145,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9FEC781D233B34F600C2FCAA /* SnapshotTesting.framework in Frameworks */,
+				9F585407270F00CD0088AF64 /* SnapshotTesting in Frameworks */,
 				9F81CB292334C6AE008DD994 /* DataSourceController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -437,7 +437,6 @@
 				9F81CB202334C6AE008DD994 /* Sources */,
 				9F81CB212334C6AE008DD994 /* Frameworks */,
 				9F81CB222334C6AE008DD994 /* Resources */,
-				9FEC781E233B367500C2FCAA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -445,6 +444,9 @@
 				9F81CB2B2334C6AE008DD994 /* PBXTargetDependency */,
 			);
 			name = DataSourceControllerTests;
+			packageProductDependencies = (
+				9F585406270F00CD0088AF64 /* SnapshotTesting */,
+			);
 			productName = DataSourceControllerTests;
 			productReference = 9F81CB242334C6AE008DD994 /* DataSourceControllerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -518,6 +520,9 @@
 				Base,
 			);
 			mainGroup = 9FF358CF22A2D32C00C372BE;
+			packageReferences = (
+				9F585405270F00CD0088AF64 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
+			);
 			productRefGroup = 9FF358DA22A2D32C00C372BE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -557,28 +562,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		9FEC781E233B367500C2FCAA /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/SnapshotTesting.framework",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SnapshotTesting.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9F81CB202334C6AE008DD994 /* Sources */ = {
@@ -679,10 +662,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = DataSourceControllerTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -703,10 +683,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = DataSourceControllerTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -978,6 +955,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9F585405270F00CD0088AF64 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9F585406270F00CD0088AF64 /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9F585405270F00CD0088AF64 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9FF358D022A2D32C00C372BE /* Project object */;
 }

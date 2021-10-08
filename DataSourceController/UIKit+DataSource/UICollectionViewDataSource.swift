@@ -4,11 +4,10 @@ import UIKit
 
 extension DataSourceController: UICollectionViewDataSource {
     public func numberOfSections(in collectionView: UICollectionView) -> Int {
-        if totalRowCount == 0 {
-            let backgroundView = delegate?.backgroundEmptyView(for: collectionView) ?? delegate?.backgroundMessageLabel(for: collectionView)
-            if backgroundView != nil {
+        if totalRowCount == .zero {
+            if let backgroundView = delegate?.backgroundEmptyView(for: collectionView) {
                 collectionView.backgroundView = backgroundView
-	            collectionView.backgroundView?.isHidden = false
+                collectionView.backgroundView?.isHidden = false
             }
         } else {
             collectionView.backgroundView?.isHidden = true
@@ -20,7 +19,7 @@ extension DataSourceController: UICollectionViewDataSource {
         _: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        return rowCount(for: section)
+        rowCount(for: section)
     }
 
     public func collectionView(
@@ -77,7 +76,7 @@ private extension DataSourceController {
         )
         let titleLabel = cell.contentView.subviews.compactMap { $0 as? UILabel }.first ?? UILabel(frame: cell.contentView.bounds)
         titleLabel.font = .systemFont(ofSize: 12.0)
-        titleLabel.numberOfLines = 0
+        titleLabel.numberOfLines = .zero
         titleLabel.text = "Error: missing model or data controller at \(indexPath)"
         titleLabel.backgroundColor = .clear
         titleLabel.removeFromSuperview()
@@ -103,7 +102,7 @@ private extension DataSourceController {
         )
         let titleLabel = view.subviews.compactMap { $0 as? UILabel }.first ?? UILabel(frame: view.bounds)
         titleLabel.font = .systemFont(ofSize: 14.0)
-        titleLabel.numberOfLines = 0
+        titleLabel.numberOfLines = .zero
         titleLabel.text = "Error: missing model or data controller for section data at \(indexPath)"
         titleLabel.backgroundColor = .clear
         titleLabel.removeFromSuperview()

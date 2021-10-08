@@ -21,7 +21,7 @@ struct ModelDataControllerPair {
     let dataController: CellDataController.Type
 
     func modelMatches(_ modelInstance: Any) -> Bool {
-        return model == type(of: modelInstance)
+        model == type(of: modelInstance)
     }
 }
 
@@ -49,6 +49,7 @@ public class ModelDataControllerMap: NSObject {
 }
 
 public class DataSourceController: ModelDataControllerMap {
+    internal var tableViewSeparatorStyle: UITableViewCell.SeparatorStyle?
     public weak var delegate: DataSourceControllerDelegate?
 
     internal var sections: [Section]
@@ -75,29 +76,34 @@ public class DataSourceController: ModelDataControllerMap {
         self.init(sections: [Section(rows: rows)], delegate: delegate)
     }
 
+    public convenience init(
+        row: Any,
+        delegate: DataSourceControllerDelegate? = nil
+    ) {
+        self.init(sections: [Section(rows: [row])], delegate: delegate)
+    }
+
     public func data(for section: Int) -> SectionDataModelType? {
         guard (0..<sectionCount).contains(section) else { return nil }
         return sections[section].sectionData
     }
 
     var sectionCount: Int {
-        return sections.count
+        sections.count
     }
 
     func rowCount(for section: Int) -> Int {
-        guard (0..<sectionCount).contains(section) else { return 0 }
+        guard (0..<sectionCount).contains(section) else { return .zero }
         return sections[section].rows.count
     }
 
     public var totalRowCount: Int {
-        return sections.flatMap { $0.rows }.count
+        sections.reduce(.zero) { $0 + $1.rows.count }
     }
 
     public func modelObject(at indexPath: IndexPath) -> Any? {
         guard (0..<sectionCount).contains(indexPath.section),
-            (0..<sections[indexPath.section].rows.count).contains(indexPath.row) else {
-            return nil
-        }
+              (0..<sections[indexPath.section].rows.count).contains(indexPath.row) else { return nil }
         return sections[indexPath.section].rows[indexPath.row]
     }
 }
